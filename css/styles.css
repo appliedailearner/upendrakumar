@@ -2044,3 +2044,10 @@ a:hover {
     display: none;
   }
 }
+
+/* ===== CREDENTIALS REFINEMENT ===== */
+.credential-icon {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
