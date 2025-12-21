@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Azure Solutions Architect with 20+ years experience. Get free learning roadmaps and masterclasses. Trusted by Fortune 500 companies for cloud architecture, Zero Trust security, and enterprise solutions.">
+    <meta name="keywords"
+        content="Azure API Management, APIM expert, API architecture, Zero Trust security, cloud architect, DevOps mentorship, Azure consulting, API gateway, cloud FinOps, Azure Solutions Architect">
+    <meta name="author" content="Upendra Kumar">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Upendra Kumar | Azure Solutions Architect & Cloud Expert">
+    <meta property="og:description"
+        content="Senior Delivery Architect specializing in Azure cloud architecture, Zero Trust Security, and enterprise solutions. Free roadmaps and masterclasses available.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://upendrakumar.com">
+    <meta property="og:image" content="https://upendrakumar.com/assets/images/profile.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Upendra Kumar | Azure Solutions Architect">
+    <meta name="twitter:description"
+        content="20+ years architecting cloud solutions for Fortune 500 companies. Free learning roadmaps available.">
+    <meta name="twitter:image" content="https://upendrakumar.com/assets/images/profile.jpg">
+
+    <title>Upendra Kumar | Azure Solutions Architect & Cloud Expert</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Critical CSS - Inlined for faster initial render -->
+    <style>
+        /* Critical above-the-fold styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #f1f5f9;
+            line-height: 1.6;
+            overflow-x: hidden
+        }
+
+        :root {
+            /* Colors - Dark Theme */
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #0a0a14;
+
+            /* Accents */
+            --accent-azure: #38bdf8;
+            --accent-purple: #a78bfa;
+            --accent-gradient: linear-gradient(135deg, #a78bfa, #38bdf8);
+
+            /* Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --glass-blur: blur(10px);
+
+            /* Text */
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+
+            /* Misc */
+            --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-md: 12px;
+            --radius-full: 9999px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+            transition: all var(--transition-medium)
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none
+        }
+
+        .nav-brand-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -1
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 540px
+        }
+
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease, visibility 0.3s ease
+        }
+
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer
+        }
+
+        @media (max-width:768px) {
+            .nav-links {
+                display: none
+            }
+
+            .mobile-menu-btn {
+                display: block
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+
+    <!-- Non-critical CSS - Deferred -->
+    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/styles.css">
+    </noscript>
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://images.credly.com">
+    <link rel="dns-prefetch" href="https://images.credly.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://learn.microsoft.com">
+
+    <!-- Phosphor Icons - Deferred -->
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230078D4' rx='20' width='100' height='100'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>UK</text></svg>">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Upendra Kumar",
+      "jobTitle": "Professional Services Delivery Architect",
+      "description": "Azure API Management Expert and Cloud Architect with 20+ years experience",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Rackspace Technology"
+      },
+      "url": "https://upendrakumar.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/journeytocloudwithupendra/",
+        "https://www.credly.com/users/upendra-kumar.f4a5260e",
+        "https://learn.microsoft.com/en-us/users/kumarupendra/transcript"
+      ],
+      "knowsAbout": ["Azure API Management", "Cloud Architecture", "Zero Trust Security", "DevOps", "Cloud FinOps", "API Gateway"],
+      "alumniOf": "Cloud Architecture",
+      "award": ["Azure Solutions Architect Expert", "Cybersecurity Architect Expert", "TOGAF 10 Practitioner"]
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKXSPNHV8S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-MKXSPNHV8S');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "unk594b3kw");
+    </script>
+</head>
+
+<body>
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-icon">UK</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="nav-brand">
+                <div class="nav-brand-icon">UK</div>
+                <span>Upendra Kumar</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta hidden-mobile">
+                <a href="assets/Upendra_Kumar_Resume.pdf" class="btn btn-primary btn-sm" download>
+                    <i class="ph ph-download-simple"></i>
+                    Resume
+                </a>
+            </div>
+
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+            <i class="ph ph-x"></i>
+        </button>
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#expertise" class="mobile-link">Expertise</a>
+        <a href="#credentials" class="mobile-link">Credentials</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient hero-gradient-1"></div>
+            <div class="hero-gradient hero-gradient-2"></div>
+            <div class="hero-gradient hero-gradient-3"></div>
+            <div class="hero-grid"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Turning Azure Complexity into <span class="gradient-text">Competitive Advantage</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Forget theory-only certification prep. Master the complex, multi-region scenarios employers
+                        actually interview for in my hands-on bootcamp. Learn from 20+ years of Fortune 500 experience.
+                    </p>
+
+
+
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value gradient-text">$50M+</div>
+                            <div class="hero-stat-label">Cloud Cost Savings</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value gradient-text">50+</div>
+                            <div class="hero-stat-label">Migrations & Transformations</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value gradient-text">100+</div>
+                            <div class="hero-stat-label">Well-Architected Reviews</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value gradient-text">23+</div>
+                            <div class="hero-stat-label">500 Clients</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-glow"></div>
+                        <img src="assets/images/profile.jpg" alt="Upendra Kumar - Azure API Management Expert"
+                            class="hero-image">
+                    </div>
+
+                    <!-- Floating Card: Top Right - Azure Solutions Architect -->
+                    <div class="hero-floating-card hero-card-1">
+                        <div class="card-icon">🏆</div>
+                        <div>
+                            <strong>Azure Solutions Architect</strong><br>
+                            <span class="text-muted">Expert Level</span>
+                        </div>
+                    </div>
+
+                    <!-- Floating Card: Bottom Left - Cybersecurity Architect -->
+                    <div class="hero-floating-card hero-card-2">
+                        <div class="card-icon">🔐</div>
+                        <div>
+                            <strong>Cybersecurity Architect</strong><br>
+                            <span class="text-muted">Expert Level</span>
+                        </div>
+                    </div>
+
+                    <!-- Floating Card: Top Left - Azure AI Engineer -->
+                    <div class="hero-floating-card hero-card-3">
+                        <div class="card-icon">🤖</div>
+                        <div>
+                            <strong>Azure AI Engineer</strong><br>
+                            <span class="text-muted">Associate</span>
+                        </div>
+                    </div>
+
+                    <!-- Floating Card: Bottom Right - TOGAF 10 -->
+                    <div class="hero-floating-card hero-card-4">
+                        <div class="card-icon">🏛️</div>
+                        <div>
+                            <strong>TOGAF 10 Practitioner</strong><br>
+                            <span class="text-muted">Enterprise Architect</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image fade-in">
+                        <img src="assets/images/profile.jpg" alt="Upendra Kumar" loading="lazy">
+                    </div>
+
+                    <div class="about-content">
+                        <h2 class="fade-in">Journey to Cloud with <span class="gradient-text">Upendra</span></h2>
+
+                        <p class="fade-in fade-in-delay-1">
+                            With two decades of experience architecting enterprise cloud solutions for Fortune 500
+                            financial
+                            institutions, I specialize in translating complex Azure architectures into strategic
+                            advantages
+                            that drive measurable business outcomes.
+                        </p>
+
+                        <p class="fade-in fade-in-delay-2">
+                            As a Professional Services Delivery Architect at Rackspace Technology, I help organizations
+                            navigate the intersection of API management, security, and cloud economics. My approach
+                            focuses
+                            on building resilient, scalable architectures that stand the test of enterprise-grade
+                            demands.
+                        </p>
+
+                        <p class="fade-in fade-in-delay-3">
+                            I'm passionate about mentoring the next generation of cloud architects and sharing insights
+                            on
+                            Zero Trust security, DORA & RBI compliance, and modern API strategies through speaking
+                            engagements and thought leadership content.
+                        </p>
+
+                        <div class="about-highlights fade-in fade-in-delay-4">
+                            <div class="about-highlight">
+                                <span class="about-highlight-icon"><i class="ph ph-buildings"></i></span>
+                                <span>Enterprise Architecture</span>
+                            </div>
+                            <div class="about-highlight">
+                                <span class="about-highlight-icon"><i class="ph ph-shield-check"></i></span>
+                                <span>Zero Trust Security</span>
+                            </div>
+                            <div class="about-highlight">
+                                <span class="about-highlight-icon"><i class="ph ph-chart-line-up"></i></span>
+                                <span>Cloud FinOps</span>
+                            </div>
+                            <div class="about-highlight">
+                                <span class="about-highlight-icon"><i class="ph ph-users-three"></i></span>
+                                <span>Technical Mentorship</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="expertise section" id="expertise">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fade-in">Areas of <span class="gradient-text">Expertise</span></h2>
+                    <p class="fade-in fade-in-delay-1">
+                        Deep specialization in Azure API Management and enterprise cloud architecture, delivering
+                        strategic
+                        solutions for complex organizational challenges.
+                    </p>
+                </div>
+
+                <div class="expertise-grid">
+                    <div class="expertise-card glass-card fade-in fade-in-delay-1">
+                        <div class="expertise-icon">🚀</div>
+                        <h3>API Gateway Architecture</h3>
+                        <p>Enterprise-scale API gateway design and implementation using Azure API Management.
+                            Centralized
+                            traffic management, policy enforcement, and request routing.</p>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">Azure APIM</span>
+                            <span class="expertise-tag">Gateway Patterns</span>
+                            <span class="expertise-tag">Traffic Management</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card glass-card fade-in fade-in-delay-2">
+                        <div class="expertise-icon">🛡️</div>
+                        <h3>API Security & Zero Trust</h3>
+                        <p>Advanced security implementation with OAuth 2.0, OpenID Connect, mTLS, and Microsoft Defender
+                            integration. Zero Trust architecture for modern enterprises.</p>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">Zero Trust</span>
+                            <span class="expertise-tag">OAuth 2.0</span>
+                            <span class="expertise-tag">mTLS</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card glass-card fade-in fade-in-delay-3">
+                        <div class="expertise-icon">🤖</div>
+                        <h3>AI Gateway & GenAI APIs</h3>
+                        <p>Managing AI/ML model endpoints through APIM, implementing semantic caching, token quotas, and
+                            content safety for generative AI applications.</p>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">AI Gateway</span>
+                            <span class="expertise-tag">Azure OpenAI</span>
+                            <span class="expertise-tag">Token Management</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card glass-card fade-in fade-in-delay-4">
+                        <div class="expertise-icon">🔄</div>
+                        <h3>API Lifecycle Management</h3>
+                        <p>Full API journey management from design to retirement. Versioning strategies, developer
+                            portal
+                            customization, and seamless API consumer transitions.</p>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">Versioning</span>
+                            <span class="expertise-tag">Developer Portal</span>
+                            <span class="expertise-tag">Documentation</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card glass-card fade-in fade-in-delay-5">
+                        <div class="expertise-icon">🔄</div>
+                        <h3>Azure Migrations & Modernizations</h3>
+                        <p>End-to-end cloud migration strategy and execution. Legacy application modernization,
+                            lift-and-shift migrations, re-platforming, and cloud-native transformations. Minimizing
+                            downtime and risk.</p>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">Migration Strategy</span>
+                            <span class="expertise-tag">App Modernization</span>
+                            <span class="expertise-tag">Cloud-Native</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card glass-card fade-in fade-in-delay-6">
+                        <div class="expertise-icon">💰</div>
+                        <h3>Cloud FinOps & Economics</h3>
+                        <p>Azure billing architecture optimization, cost governance strategies, and translating cloud
+                            economics into strategic business advantages.</p>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">FinOps</span>
+                            <span class="expertise-tag">Cost Optimization</span>
+                            <span class="expertise-tag">EA/MCA/CSP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credentials Section -->
+        <section class="credentials section" id="credentials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fade-in">Certifications & <span class="gradient-text">Credentials</span></h2>
+                    <p class="fade-in fade-in-delay-1">
+                        Validated expertise across Microsoft Azure, Google Cloud, and enterprise architecture
+                        frameworks.
+                    </p>
+                </div>
+
+                <!-- Microsoft Azure Certifications -->
+                <!-- Microsoft Certified Trainer Badge -->
+                <div class="mct-badge-container fade-in"
+                    style="text-align: center; margin: 0 auto 2rem; padding: 2rem; background: linear-gradient(135deg, rgba(0,120,212,0.1), rgba(0,120,212,0.05)); border-radius: 12px; max-width: 600px;">
+                    <img src="assets/images/certifications/mct-badge.png" alt="Microsoft Certified Trainer"
+                        loading="lazy"
+                        style="width: 150px; height: 150px; margin: 0 auto 1rem; display: block; object-fit: contain;">
+                    <h3 style="color: var(--text-primary); margin: 0.5rem 0; text-align: center;">Microsoft Certified
+                        Trainer</h3>
+                    <p style="color: var(--text-secondary); margin: 0; text-align: center;">Authorized to deliver
+                        official Microsoft training</p>
+                </div>
+
+                <h3 class="fade-in"
+                    style="color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg"
+                        alt="Azure" loading="lazy" style="width: 24px; height: 24px;"> Microsoft Azure (18
+                    Certifications)
+                </h3>
+                <div class="credentials-grid">
+                    <a href="https://learn.microsoft.com/api/credentials/share/en-us/KumarUpendra/C53FA59C7D427C2F?sharingId=CE3D487851815382"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-1"
+                        style="text-decoration: none;">
+                        <div class="credential-icon">
+                            <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg"
+                                alt="Expert Badge" loading="lazy" style="width: 64px; height: 64px;">
+                        </div>
+                        <h3>Azure Solutions Architect Expert</h3>
+                        <p>Microsoft Certified</p>
+                        <span class="credential-badge">Expert</span>
+                    </a>
+
+                    <a href="https://learn.microsoft.com/api/credentials/share/en-us/KumarUpendra/B564EB215F00E881?sharingId=CE3D487851815382"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-2"
+                        style="text-decoration: none;">
+                        <div class="credential-icon">
+                            <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg"
+                                alt="Associate Badge" loading="lazy" style="width: 64px; height: 64px;">
+                        </div>
+                        <h3>Azure Security Engineer Associate</h3>
+                        <p>Microsoft Certified</p>
+                        <span class="credential-badge">Associate</span>
+                    </a>
+
+                    <a href="https://learn.microsoft.com/api/credentials/share/en-us/KumarUpendra/1EB8FCA4197E101?sharingId=CE3D487851815382"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-3"
+                        style="text-decoration: none;">
+                        <div class="credential-icon">
+                            <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg"
+                                alt="Associate Badge" loading="lazy" style="width: 64px; height: 64px;">
+                        </div>
+                        <h3>Azure Administrator Associate</h3>
+                        <p>Microsoft Certified</p>
+                        <span class="credential-badge">Associate</span>
+                    </a>
+
+                    <a href="https://learn.microsoft.com/api/credentials/share/en-us/KumarUpendra/D4533DCD74F8DE2F?sharingId=CE3D487851815382"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-4"
+                        style="text-decoration: none;">
+                        <div class="credential-icon">
+                            <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg"
+                                alt="Expert Badge" loading="lazy" style="width: 64px; height: 64px;">
+                        </div>
+                        <h3>Cybersecurity Architect Expert</h3>
+                        <p>Microsoft Certified</p>
+                        <span class="credential-badge">Expert</span>
+                    </a>
+
+                    <a href="https://learn.microsoft.com/api/credentials/share/en-us/KumarUpendra/4CE9E30F2B989907?sharingId=CE3D487851815382"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-5"
+                        style="text-decoration: none;">
+                        <div class="credential-icon">
+                            <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg"
+                                alt="Associate Badge" loading="lazy" style="width: 64px; height: 64px;">
+                        </div>
+                        <h3>Azure AI Engineer Associate</h3>
+                        <p>Microsoft Certified</p>
+                        <span class="credential-badge">Associate</span>
+                    </a>
+
+                    <a href="https://learn.microsoft.com/api/credentials/share/en-us/KumarUpendra/1DF04DFB8F757DEF?sharingId=CE3D487851815382"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-6"
+                        style="text-decoration: none;">
+                        <div class="credential-icon">
+                            <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg"
+                                alt="Expert Badge" loading="lazy" style="width: 64px; height: 64px;">
+                        </div>
+                        <h3>DevOps Engineer Expert</h3>
+                        <p>Microsoft Certified</p>
+                        <span class="credential-badge">Expert</span>
+                    </a>
+                </div>
+
+                <!-- Google Cloud Certifications -->
+                <h3 class="fade-in"
+                    style="color: var(--text-primary); margin: 3rem 0 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <img src="https://www.gstatic.com/images/branding/product/2x/google_cloud_96dp.png"
+                        alt="Google Cloud" loading="lazy" style="width: 24px; height: 24px;"> Google Cloud (4
+                    Certifications)
+                </h3>
+                <div class="credentials-grid">
+                    <a href="https://www.credly.com/badges/f6644229-9c9a-47d8-8ecd-a703febd3bec/public_url"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-1"
+                        style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #4285F4;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                            </svg>
+                        </div>
+                        <h3>Professional Cloud Architect</h3>
+                        <p>Google Cloud Certified</p>
+                        <span class="credential-badge" style="background: #4285F4;">Professional</span>
+                    </a>
+
+                    <a href="https://www.credly.com/badges/1f0f4a98-65b2-4750-be25-04005fc50a7b/public_url"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-2"
+                        style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #34A853;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                            </svg>
+                        </div>
+                        <h3>Associate Cloud Engineer</h3>
+                        <p>Google Cloud Certified</p>
+                        <span class="credential-badge" style="background: #34A853;">Associate</span>
+                    </a>
+
+                    <a href="https://www.credly.com/badges/0514c8a6-9a93-4e38-aaad-b67e18b6e3bd/public_url"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-3"
+                        style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #FBBC04;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                            </svg>
+                        </div>
+                        <h3>Cloud Digital Leader</h3>
+                        <p>Google Cloud Certified</p>
+                        <span class="credential-badge" style="background: #FBBC04; color: #000;">Foundational</span>
+                    </a>
+
+                    <a href="https://www.credly.com/badges/bdbe24e9-a6d2-4234-8803-9585fc4d2e23" target="_blank"
+                        class="credential-card glass-card fade-in fade-in-delay-4" style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #EA4335;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path
+                                    d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
+                            </svg>
+                        </div>
+                        <h3>Generative AI Leader</h3>
+                        <p>Google Cloud Certified</p>
+                        <span class="credential-badge" style="background: #EA4335;">Leader</span>
+                    </a>
+                </div>
+
+                <!-- Multi-Cloud Certifications -->
+                <h3 class="fade-in"
+                    style="color: var(--text-primary); margin: 3rem 0 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="color: #F39C12;">⚡</span> Multi-Cloud & Kubernetes (5 Certifications)
+                </h3>
+                <div class="credentials-grid">
+                    <a href="https://www.credly.com/badges/c5c7156e-a3cf-4c03-8c62-db53dd23e53f/public_url"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-1"
+                        style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #F39C12;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                            </svg>
+                        </div>
+                        <h3>Aviatrix Multicloud Network</h3>
+                        <p>Aviatrix Certified</p>
+                        <span class="credential-badge" style="background: #F39C12;">Associate</span>
+                    </a>
+
+                    <a href="https://www.credly.com/badges/9d3cb06c-d7ef-404f-858b-d5bea7148e24/public_url"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-2"
+                        style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #C0392B;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                            </svg>
+                        </div>
+                        <h3>Rackspace Hybrid Cloud Expert</h3>
+                        <p>Rackspace Certified</p>
+                        <span class="credential-badge" style="background: #C0392B;">Expert</span>
+                    </a>
+
+                    <a href="https://www.credly.com/badges/a369eb26-2216-44ab-ace9-6d18c33936bf/public_url"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-3"
+                        style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #8E44AD;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
+                            </svg>
+                        </div>
+                        <h3>Rackspace Multicloud Leader</h3>
+                        <p>Rackspace Certified</p>
+                        <span class="credential-badge" style="background: #8E44AD;">Leader</span>
+                    </a>
+
+                    <a href="https://www.credly.com/badges/85258b1c-95a0-40fb-9380-7a5b61f3d26f/public_url"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-4"
+                        style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #326CE5;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path
+                                    d="M10.9,2.1l-4.6,2.6L1.9,7.9l4.6,2.6l4.6,2.6l4.6-2.6L20.1,7.9l-4.6-2.6L10.9,2.1z M10.9,17.5l-4.6-2.6L1.9,12.3v5.2 l4.6,2.6l4.6,2.6l4.6-2.6l4.6-2.6v-5.2l-4.6,2.6L10.9,17.5z" />
+                            </svg>
+                        </div>
+                        <h3>Certified Kubernetes Administrator</h3>
+                        <p>CKA - CNCF Certified</p>
+                        <span class="credential-badge" style="background: #326CE5;">Administrator</span>
+                    </a>
+
+                    <a href="https://www.credly.com/badges/d6a6dec1-8d73-47e1-941d-8c385a4ef2aa/public_url"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-5"
+                        style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #326CE5;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path
+                                    d="M10.9,2.1l-4.6,2.6L1.9,7.9l4.6,2.6l4.6,2.6l4.6-2.6L20.1,7.9l-4.6-2.6L10.9,2.1z M10.9,17.5l-4.6-2.6L1.9,12.3v5.2 l4.6,2.6l4.6,2.6l4.6-2.6l4.6-2.6v-5.2l-4.6,2.6L10.9,17.5z" />
+                            </svg>
+                        </div>
+                        <h3>Kubernetes Application Developer</h3>
+                        <p>CKAD - CNCF Certified</p>
+                        <span class="credential-badge" style="background: #326CE5;">Developer</span>
+                    </a>
+                    <a href="https://www.credly.com/badges/af8d0b5f-e9a8-46ff-b452-24cff6b78699/public_url"
+                        target="_blank" class="credential-card glass-card fade-in fade-in-delay-1"
+                        style="text-decoration: none;">
+                        <div class="credential-icon" style="background: #8B5CF6;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="white">
+                                <path
+                                    d="M12 3L2 7.5V9h20V7.5L12 3zM4 11v2h2v-2H4zm4 0v2h2v-2H8zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zM4 15v2h2v-2H4zm4 0v2h2v-2H8zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zM2 19v2h20v-2H2z" />
+                            </svg>
+                        </div>
+                        <h3>TOGAF 10 Practitioner</h3>
+                        <p>The Open Group Certified</p>
+                        <span class="credential-badge" style="background: #9333ea;">Enterprise</span>
+                    </a>
+                </div>
+
+                <div class="text-center fade-in" style="margin-top: 3rem;">
+                    <a href="https://www.credly.com/users/upendra-kumar.f4a5260e" class="btn btn-secondary"
+                        target="_blank">
+                        <i class="ph ph-medal"></i>
+                        View All Badges on Credly
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/users/kumarupendra/transcript" class="btn btn-secondary"
+                        target="_blank" style="margin-left: 1rem;">
+                        <i class="ph ph-certificate"></i>
+                        Microsoft Learn Transcript
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fade-in">Thought Leadership & <span class="gradient-text">Projects</span></h2>
+                    <p class="fade-in fade-in-delay-1">
+                        Strategic resources and architectural guidance for enterprise leaders.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+                    <a href="https://www.linkedin.com/pulse/upi-system-architecture-flow-upendra-kumar-yhluc/"
+                        target="_blank" class="project-card glass-card fade-in fade-in-delay-1">
+                        <div class="project-preview"
+                            style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                            <div style="text-align: center; padding: 2rem;">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">💸</div>
+                                <div style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">UPI
+                                    System
+                                    Architecture</div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>UPI System Architecture and Flow</h3>
+                            <p>Deep dive into India's Unified Payments Interface architecture, exploring the technical
+                                foundations of the world's most successful digital payment system.</p>
+                            <span class="project-link">
+                                Read on LinkedIn <i class="ph ph-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/pulse/azure-api-management-best-practices-upendra-kumar-hzasc/"
+                        target="_blank" class="project-card glass-card fade-in fade-in-delay-2">
+                        <div class="project-preview"
+                            style="background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);">
+                            <div style="text-align: center; padding: 2rem;">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                                <div style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">APIM Best
+                                    Practices</div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Azure API Management Best Practices</h3>
+                            <p>Comprehensive guide to Azure API Management best practices for enterprise API strategies,
+                                covering design patterns, security, and governance.</p>
+                            <span class="project-link">
+                                Read on LinkedIn <i class="ph ph-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/pulse/two-gates-digital-bank-upendra-kumar-aaw3c/" target="_blank"
+                        class="project-card glass-card fade-in fade-in-delay-3">
+                        <div class="project-preview"
+                            style="background: linear-gradient(135deg, #1e1e3f 0%, #2d1b4e 100%);">
+                            <div style="text-align: center; padding: 2rem;">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">🏦</div>
+                                <div style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">Edge
+                                    Strategy for Banks</div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>The Two Gates to the Digital Bank</h3>
+                            <p>Azure Front Door vs Cloudflare: Choosing the right edge strategy for financial
+                                institutions. A strategic guide for CIOs.</p>
+                            <span class="project-link">
+                                Read on LinkedIn <i class="ph ph-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Roadmaps Section -->
+        <section class="roadmaps section" id="roadmaps">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fade-in">Learning <span class="gradient-text">Roadmaps</span></h2>
+                    <p class="fade-in fade-in-delay-1">
+                        Comprehensive, curated learning paths designed to accelerate your mastery in DevOps,
+                        Architecture,
+                        and AI. Start free or get personalized mentorship for faster results.
+                    </p>
+                </div>
+
+                <div class="roadmaps-grid">
+                    <!-- DevOps Roadmap Card - Active -->
+                    <a href="https://roadmapfordevops.z29.web.core.windows.net/" target="_blank"
+                        class="roadmap-card glass-card fade-in fade-in-delay-1">
+                        <div class="roadmap-badge roadmap-badge-free">FREE</div>
+                        <div class="roadmap-card-visual"
+                            style="background: linear-gradient(135deg, #0078D4 0%, #1e3a8a 100%);">
+                            <div class="roadmap-icon">🚀</div>
+                        </div>
+                        <div class="roadmap-card-content">
+                            <h3>DevOps Roadmap</h3>
+                            <p>Master DevOps from foundation to advanced specialization. Progressive learning path
+                                covering
+                                CI/CD, Kubernetes, cloud platforms, and modern DevOps practices.</p>
+                            <div class="roadmap-tags">
+                                <span class="roadmap-tag">DevOps</span>
+                                <span class="roadmap-tag">CI/CD</span>
+                                <span class="roadmap-tag">Kubernetes</span>
+                                <span class="roadmap-tag">Azure</span>
+                            </div>
+                            <div class="roadmap-cta">
+                                <span class="btn btn-primary">
+                                    <i class="ph ph-rocket-launch"></i>
+                                    Start Learning
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Architecture Roadmap Card - Coming Soon -->
+                    <div class="roadmap-card roadmap-card-disabled glass-card fade-in fade-in-delay-2">
+                        <div class="roadmap-badge roadmap-badge-coming-soon">COMING SOON</div>
+                        <div class="roadmap-card-visual"
+                            style="background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);">
+                            <div class="roadmap-icon">🏛️</div>
+                        </div>
+                        <div class="roadmap-card-content">
+                            <h3>Architecture Roadmap</h3>
+                            <p>Enterprise architecture patterns, TOGAF framework, cloud architecture design, and
+                                strategic
+                                architecture decision-making for complex systems.</p>
+                            <div class="roadmap-tags">
+                                <span class="roadmap-tag">Cloud Architecture</span>
+                                <span class="roadmap-tag">TOGAF</span>
+                                <span class="roadmap-tag">Design Patterns</span>
+                            </div>
+                            <div class="roadmap-cta">
+                                <span class="btn btn-secondary" style="opacity: 0.5; cursor: not-allowed;">
+                                    <i class="ph ph-hourglass"></i>
+                                    Coming Soon
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Roadmap Card - Coming Soon -->
+                    <div class="roadmap-card roadmap-card-disabled glass-card fade-in fade-in-delay-3">
+                        <div class="roadmap-badge roadmap-badge-coming-soon">COMING SOON</div>
+                        <div class="roadmap-card-visual"
+                            style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);">
+                            <div class="roadmap-icon">🤖</div>
+                        </div>
+                        <div class="roadmap-card-content">
+                            <h3>AI & Machine Learning Roadmap</h3>
+                            <p>Journey into AI Engineering, Azure AI services, GenAI applications, prompt engineering,
+                                and
+                                building production-ready ML systems.</p>
+                            <div class="roadmap-tags">
+                                <span class="roadmap-tag">Azure AI</span>
+                                <span class="roadmap-tag">GenAI</span>
+                                <span class="roadmap-tag">Machine Learning</span>
+                            </div>
+                            <div class="roadmap-cta">
+                                <span class="btn btn-secondary" style="opacity: 0.5; cursor: not-allowed;">
+                                    <i class="ph ph-hourglass"></i>
+                                    Coming Soon
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="roadmaps-footer fade-in fade-in-delay-4">
+                    <p class="text-center" style="color: var(--text-muted); margin-top: 3rem;">
+                        💡 All roadmaps include free curated resources. Need personalized guidance?
+                        <a href="https://mypivot.work/industry-mentors/Upendra-Kumar" target="_blank"
+                            style="color: var(--accent-azure-light); font-weight: 600;">Book a mentorship call</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fade-in">What <span class="gradient-text">Leaders</span> Say</h2>
+                    <p class="fade-in fade-in-delay-1">
+                        Trusted by Fortune 500 companies and cloud architects worldwide
+                    </p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card glass-card fade-in fade-in-delay-1">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Upendra's API architecture expertise saved us $2M in cloud costs
+                            while improving our system reliability by 40%. His deep knowledge of Azure APIM is
+                            unmatched."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JD</div>
+                            <div>
+                                <strong>John Davis</strong>
+                                <span>CTO, Fortune 500 Financial Services</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card glass-card fade-in fade-in-delay-2">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"The Zero Trust architecture Upendra designed for our APIs exceeded
+                            all security compliance requirements. His mentorship transformed our entire DevOps team."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SM</div>
+                            <div>
+                                <strong>Sarah Martinez</strong>
+                                <span>CISO, Healthcare Technology</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card glass-card fade-in fade-in-delay-3">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Upendra's roadmaps and hands-on guidance helped me transition from
+                            traditional IT to cloud architecture. Now I'm leading API initiatives at my company."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RK</div>
+                            <div>
+                                <strong>Raj Kumar</strong>
+                                <span>Senior Cloud Architect, Tech Startup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing section" id="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fade-in">Choose Your <span class="gradient-text">Learning Path</span></h2>
+                    <p class="fade-in fade-in-delay-1">
+                        From free resources to personalized mentorship - find the right fit for your goals
+                    </p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Free Tier -->
+                    <div class="pricing-card glass-card fade-in fade-in-delay-1">
+                        <div class="pricing-header">
+                            <h3>Self-Paced</h3>
+                            <div class="price">
+                                <span class="price-amount">₹0</span>
+                                <span class="price-period">/forever</span>
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ph ph-check-circle"></i> Free learning roadmaps</li>
+                            <li><i class="ph ph-check-circle"></i> Weekly cloud tips newsletter</li>
+                            <li><i class="ph ph-check-circle"></i> Community access</li>
+                            <li><i class="ph ph-check-circle"></i> Architecture checklists</li>
+                            <li><i class="ph ph-check-circle"></i> Blog & resources</li>
+                        </ul>
+                        <a href="#lead-magnet" class="btn btn-secondary btn-block">Get Started Free</a>
+                    </div>
+
+                    <!-- Masterclass Tier -->
+                    <div class="pricing-card glass-card featured fade-in fade-in-delay-2">
+                        <div class="pricing-header">
+                            <h3>Azure Solutions Architect Masterclass</h3>
+                            <div class="price">
+                                <span class="price-strike">₹39,999</span>
+                                <span class="price-amount">₹24,999</span>
+                                <span class="price-period">/one-time</span>
+                            </div>
+                            <span class="price-label">Early Bird Price - Save ₹15,000</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ph ph-check-circle"></i> Everything in Free</li>
+                            <li><i class="ph ph-check-circle"></i> 40+ hours recorded video content</li>
+                            <li><i class="ph ph-check-circle"></i> 50+ architecture templates & diagrams</li>
+                            <li><i class="ph ph-check-circle"></i> Real-world case studies (Fortune 500)</li>
+                            <li><i class="ph ph-check-circle"></i> Recorded Q&A sessions library</li>
+                            <li><i class="ph ph-check-circle"></i> Implementation guides & checklists</li>
+                        </ul>
+                        <a href="https://mypivot.work/industry-mentors/Upendra-Kumar" target="_blank"
+                            class="btn btn-primary btn-block">
+                            Book Weekend Session
+                        </a>
+                    </div>
+
+                    <!-- 1:1 Consulting Tier -->
+                    <div class="pricing-card glass-card fade-in fade-in-delay-3">
+                        <div class="pricing-header">
+                            <h3>1:1 Weekend Mentorship</h3>
+                            <div class="price">
+                                <span class="price-amount">₹5,000</span>
+                                <span class="price-period">/hour</span>
+                            </div>
+                            <span class="price-label">Weekends Only • Max 4 hours/session</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="ph ph-check-circle"></i> Everything in Masterclass</li>
+                            <li><i class="ph ph-check-circle"></i> Personal architecture review</li>
+                            <li><i class="ph ph-check-circle"></i> Recorded session summary & notes</li>
+                            <li><i class="ph ph-check-circle"></i> Custom solution design</li>
+                            <li><i class="ph ph-check-circle"></i> Architecture diagrams & documentation</li>
+                            <li><i class="ph ph-check-circle"></i> Code review & recommendations</li>
+                            <li><i class="ph ph-check-circle"></i> Implementation guidance</li>
+                            <li><i class="ph ph-check-circle"></i> Career mentorship & roadmap</li>
+                            <li><i class="ph ph-check-circle"></i> Priority email support (48hr response)</li>
+                        </ul>
+                        <a href="https://mypivot.work/industry-mentors/Upendra-Kumar" target="_blank"
+                            class="btn btn-primary btn-block">
+                            Book Weekend Session
+                        </a>
+                        <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
+                            💡 Popular packages: 2 hours (₹10,000) • 4 hours (₹20,000)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq section" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fade-in">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                </div>
+
+                <div class="faq-grid">
+                    <details class="faq-item glass-card fade-in fade-in-delay-1">
+                        <summary>
+                            <span>How much does a strategy call cost?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </summary>
+                        <p>Strategy calls are ₹800 for 30 minutes. Weekend mentorship sessions are ₹5,000/hour
+                            (weekends only, max 4 hours/session). Popular packages: 2 hours (₹10,000) or 4 hours
+                            (₹20,000).
+                            Includes personal architecture review, session summary, diagrams, code review, and career
+                            roadmap.
+                            Book via MyPivot.</p>
+                    </details>
+
+                    <details class="faq-item glass-card fade-in fade-in-delay-2">
+                        <summary>
+                            <span>What's included in the free roadmaps?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </summary>
+                        <p>The free roadmaps include curated learning paths, resource recommendations,
+                            hands-on labs,
+                            and community access. The DevOps roadmap is live now, with Architecture and AI
+                            roadmaps
+                            coming soon.</p>
+                    </details>
+
+                    <details class="faq-item glass-card fade-in fade-in-delay-3">
+                        <summary>
+                            <span>When will the Masterclass be available?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </summary>
+                        <p>The Azure Solutions Architect Masterclass is now LIVE and open for enrollment!
+                            Secure your spot at the early bird price of ₹24,999 (regular price: ₹39,999).
+                            Limited seats available for this cohort.</p>
+                    </details>
+
+                    <details class="faq-item glass-card fade-in fade-in-delay-4">
+                        <summary>
+                            <span>Do you work with companies or individuals?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </summary>
+                        <p>Both! I work with Fortune 500 companies on enterprise API architecture projects,
+                            and also
+                            mentor individual developers and architects looking to advance their cloud
+                            careers.</p>
+                    </details>
+
+                    <details class="faq-item glass-card fade-in fade-in-delay-5">
+                        <summary>
+                            <span>What industries do you specialize in?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </summary>
+                        <p>I have deep experience in financial services, healthcare, and technology sectors.
+                            My
+                            expertise in Zero Trust security and compliance (DORA, RBI) makes me
+                            particularly valuable
+                            for regulated industries.</p>
+                    </details>
+
+                    <details class="faq-item glass-card fade-in fade-in-delay-6">
+                        <summary>
+                            <span>How quickly can we get started?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </summary>
+                        <p>For consulting projects, we can typically start within 1-2 weeks after the
+                            initial discovery
+                            call and proposal approval. Emergency architecture reviews can be expedited
+                            within 48 hours.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Happens Next Section -->
+        <section class="next-steps section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fade-in">What Happens <span class="gradient-text">After You Book?</span></h2>
+                    <p class="fade-in fade-in-delay-1">
+                        A clear, transparent process from strategy to delivery
+                    </p>
+                </div>
+
+                <div class="steps-timeline">
+                    <div class="step-item fade-in fade-in-delay-1">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Strategy Call</h3>
+                            <p class="step-duration">30 minutes • Rs 800</p>
+                            <p>We discuss your architecture challenges, current setup, and goals. I'll ask
+                                questions to
+                                understand your technical environment and business objectives.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-connector"></div>
+
+                    <div class="step-item fade-in fade-in-delay-2">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Custom Proposal</h3>
+                            <p class="step-duration">48 hours turnaround</p>
+                            <p>You receive a detailed proposal with solution architecture, timeline,
+                                deliverables, and
+                                transparent pricing. No surprises, no hidden costs.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-connector"></div>
+
+                    <div class="step-item fade-in fade-in-delay-3">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Project Kickoff</h3>
+                            <p class="step-duration">Within 1 week</p>
+                            <p>Once approved, we kick off with a detailed planning session. You get direct
+                                access to me
+                                via Slack/Teams for the duration of the project.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-connector"></div>
+
+                    <div class="step-item fade-in fade-in-delay-4">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Delivery & Support</h3>
+                            <p class="step-duration">Ongoing</p>
+                            <p>Regular check-ins, documentation, knowledge transfer, and 30-day
+                                post-delivery support to
+                                ensure smooth implementation and team enablement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="contact-bg-gradient"></div>
+
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="fade-in">Let's Build Something <span class="gradient-text">Strategic</span>
+                    </h2>
+
+                    <p class="fade-in fade-in-delay-1">
+                        Ready to architect Azure solutions that power your digital transformation? Book a strategy call
+                        to discuss
+                        your
+                        enterprise challenges and explore tailored solutions.
+                    </p>
+
+                    <div class="contact-cta fade-in fade-in-delay-2">
+                        <a href="https://mypivot.work/industry-mentors/Upendra-Kumar" class="btn btn-primary"
+                            target="_blank">
+                            <i class="ph ph-calendar-check"></i>
+                            Book Strategy Call
+                        </a>
+                    </div>
+
+                    <div class="contact-links fade-in fade-in-delay-3">
+                        <a href="https://www.linkedin.com/in/journeytocloudwithupendra/" class="contact-link"
+                            target="_blank" title="LinkedIn">
+                            <i class="ph ph-linkedin-logo"></i>
+                        </a>
+                        <a href="https://www.credly.com/users/upendra-kumar.f4a5260e" class="contact-link"
+                            target="_blank" title="Credly Badges">
+                            <i class="ph ph-medal"></i>
+                        </a>
+                        <a href="https://learn.microsoft.com/en-us/users/kumarupendra/transcript" class="contact-link"
+                            target="_blank" title="Microsoft Learn">
+                            <i class="ph ph-microsoft-outlook-logo"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Upendra Kumar. Built with passion for cloud architecture.</p>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Waitlist Modal -->
+    <div class="modal-overlay" id="waitlistModal">
+        <div class="modal-content glass-card">
+            <button class="modal-close" onclick="closeModal('waitlistModal')">
+                <i class="ph ph-x"></i>
+            </button>
+            <div class="modal-header">
+                <h2>Join the Masterclass Waitlist</h2>
+                <p>Be the first to know when enrollment opens + get early bird pricing ($497 vs $997)</p>
+            </div>
+            <form class="email-capture-form" onsubmit="handleWaitlistSignup(event)">
+                <input type="email" placeholder="Enter your work email" required>
+                <button type="submit" class="btn btn-primary">
+                    <i class="ph ph-bell"></i>
+                    Notify Me When Ready
+                </button>
+            </form>
+            <div class="modal-footer">
+                <i class="ph ph-users-three"></i>
+                <span>Join 500+ architects on the waitlist</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
